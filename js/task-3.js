@@ -1,19 +1,26 @@
 "use strict";
 
-function filterArray(numbers, value) {
-  const emptyArray = [];
+const profile = {
+  username: "Jacob",
+  playTime: 300,
 
-  for (let i = 0; i < numbers.length; i += 1) {
-    const element = numbers[i];
-    if (element > value) {
-      emptyArray.push(numbers[i]);
-    }
-  }
-  return emptyArray;
-}
+  changeUsername(newName) {
+    this.username = newName;
+  },
 
-console.log(filterArray([1, 2, 3, 4, 5], 3));
-console.log(filterArray([1, 2, 3, 4, 5], 4));
-console.log(filterArray([1, 2, 3, 4, 5], 5));
-console.log(filterArray([12, 24, 8, 41, 76], 38));
-console.log(filterArray([12, 24, 8, 41, 76], 20));
+  updatePlayTime(hours) {
+    this.playTime += hours;
+  },
+
+  getInfo() {
+    return `${this.username} has ${this.playTime} active hours!`;
+  },
+};
+
+console.log(profile.getInfo());
+
+profile.changeUsername("Marco");
+console.log(profile.getInfo());
+
+profile.updatePlayTime(20);
+console.log(profile.getInfo());
